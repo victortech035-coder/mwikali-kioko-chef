@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery Portfolio Management | Chef Mwikali Kioko Portal</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <!-- Admin Sidebar -->
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <h2 style="font-size: 1.35rem; color: var(--color-cream); margin-bottom: 0.2rem;">Mwikali Kioko</h2>
+          <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gold);">Chef Portal</span>
+        </div>
+
+        <ul class="admin-nav">
+          <li class="admin-nav-item"><a href="/admin/dashboard.html">📊 Overview Dashboard</a></li>
+          <li class="admin-nav-item"><a href="/admin/orders.html">📦 Customer Orders</a></li>
+          <li class="admin-nav-item"><a href="/admin/bookings.html">📅 Catering Enquiries</a></li>
+          <li class="admin-nav-item"><a href="/admin/menu.html">🍲 Menu Management</a></li>
+          <li class="admin-nav-item active"><a href="/admin/gallery.html">🖼️ Gallery Portfolio</a></li>
+        </ul>
+
+        <div class="admin-sidebar-footer">
+          <div id="admin-user-display" style="font-size: 0.82rem; color: rgba(255, 248, 238, 0.7); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Chef Mwikali Kioko</div>
+          <a href="/" target="_blank" style="font-size: 0.85rem; color: var(--color-gold);">View Live Website &rarr;</a>
+          <button onclick="Auth.logout()" class="btn btn-outline-gold btn-sm" style="width: 100%; margin-top: 0.5rem;">Sign Out</button>
+        </div>
+      </aside>
+
+      <!-- Main Admin Content Area -->
+      <main class="admin-main">
+        <div class="admin-header">
+          <div>
+            <h1 style="font-size: 1.85rem; color: var(--color-forest);">Culinary Gallery Portfolio</h1>
+            <p style="font-size: 0.95rem; color: var(--color-muted);">Upload authentic food photography, event setups, and kitchen craft directly to your website.</p>
+          </div>
+          <div>
+            <a href="/gallery.html" target="_blank" class="btn btn-outline btn-sm">View Public Gallery &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Add / Upload Photo Card -->
+        <div class="admin-card">
+          <h3 style="font-size: 1.25rem; color: var(--color-forest); margin-bottom: 1.25rem;">+ Upload New Image</h3>
+          
+          <form id="add-gallery-form">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="gal_title">Photo Title <span class="required">*</span></label>
+                <input type="text" id="gal_title" class="form-input" placeholder="e.g. Nyama Choma Live Station at Karen Wedding" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="gal_cat">Category <span class="required">*</span></label>
+                <select id="gal_cat" class="form-select" required>
+                  <option value="Cuisine">Cuisine &amp; Plating</option>
+                  <option value="Cooking Videos">Cooking Videos &amp; Reels</option>
+                  <option value="Events">Event Banquets</option>
+                  <option value="Chef at Work">Chef at Work</option>
+                  <option value="Private Dining">Private Dining</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Upload File Input & Preview Area -->
+            <div class="form-group">
+              <label class="form-label" for="gal_file">Upload Photo or Video File (from Phone or Computer) <span class="required">*</span></label>
+              <div style="border: 2px dashed var(--color-border); border-radius: var(--radius-md); padding: 1.75rem; text-align: center; background-color: var(--color-white); position: relative;">
+                <input 
+                  type="file" 
+                  id="gal_file" 
+                  name="image" 
+                  accept="image/png, image/jpeg, image/jpg, image/webp, image/gif, video/mp4, video/webm" 
+                  style="cursor: pointer; position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%;"
+                />
+                <div style="pointer-events: none;">
+                  <div style="font-size: 2rem; margin-bottom: 0.5rem;">📁</div>
+                  <div style="font-weight: 600; color: var(--color-forest); margin-bottom: 0.25rem;">Click or Drag &amp; Drop Photo or Video Here</div>
+                  <div style="font-size: 0.8rem; color: var(--color-muted);">Supports JPG, PNG, WEBP, and MP4/WebM videos up to 50MB</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Media Preview Box -->
+            <div id="image-preview-container" style="display: none; margin-bottom: 1.5rem; text-align: center; background: var(--color-cream-subtle); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+              <span id="admin-preview-label" style="font-size: 0.8rem; font-weight: 600; color: var(--color-forest); display: block; margin-bottom: 0.5rem;">Selected Media Preview:</span>
+              <img id="image-preview" src="" alt="Upload Preview" style="max-height: 220px; max-width: 100%; border-radius: var(--radius-sm); object-fit: contain; box-shadow: var(--shadow-sm); display: none; margin: 0 auto;" />
+              <video id="video-preview" controls playsinline style="max-height: 220px; max-width: 100%; border-radius: var(--radius-sm); display: none; margin: 0 auto; background: #000;"></video>
+            </div>
+
+            <!-- Alternative: Choose Existing Preset Image -->
+            <div class="form-group">
+              <label class="form-label" for="gal_image">Or select from existing library assets</label>
+              <select id="gal_image" class="form-select">
+                <option value="">-- Choose file above or select library preset --</option>
+                <option value="/assets/images/luxury_catering_setup.jpg">Karen Luxury Banquet Buffet Setup</option>
+                <option value="/assets/images/kenyan_beef_pilau.jpg">Swahili Beef Pilau Dish</option>
+                <option value="/assets/images/nyama_choma_platter.jpg">Flame-Charred Nyama Choma</option>
+                <option value="/assets/images/hero_chef_plating.jpg">Chef Plating Afro-Fusion Course</option>
+                <option value="/assets/images/chef_mwikali_portrait.jpg">Chef Mwikali Head Chef Portrait</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="gal_caption">Caption &amp; Story (Optional)</label>
+              <input type="text" id="gal_caption" class="form-input" placeholder="e.g. Slow-steamed spiced basmati pilau with caramelised onions and fresh kachumbari." />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 0.5rem;">Upload Media to Gallery</button>
+          </form>
+        </div>
+
+        <!-- Current Gallery Cards Container -->
+        <div class="admin-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: var(--color-forest);">Current Gallery Portfolio</h3>
+              <p style="font-size: 0.85rem; color: var(--color-muted);">Photos and cooking videos currently published on the public portfolio.</p>
+            </div>
+            
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button class="btn btn-outline btn-sm active" onclick="Admin.renderAdminGallery('All')">All</button>
+              <button class="btn btn-outline btn-sm" onclick="Admin.renderAdminGallery('Cuisine')">Cuisine</button>
+              <button class="btn btn-outline btn-sm" onclick="Admin.renderAdminGallery('Cooking Videos')">▶ Videos</button>
+              <button class="btn btn-outline btn-sm" onclick="Admin.renderAdminGallery('Events')">Events</button>
+              <button class="btn btn-outline btn-sm" onclick="Admin.renderAdminGallery('Chef at Work')">Chef at Work</button>
+            </div>
+          </div>
+          
+          <!-- Dynamic Gallery Cards Grid -->
+          <div id="admin-gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div style="text-align: center; padding: 2.5rem; grid-column: 1/-1; color: var(--color-muted);">Loading gallery items...</div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/admin.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        Admin.initGalleryPage();
+      });
+    </script>
+  </body>
+</html>

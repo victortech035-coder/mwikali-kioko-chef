@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Mwikali Kioko Chef &amp; Catering</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <!-- Admin Sidebar -->
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <h2 style="font-size: 1.35rem; color: var(--color-cream); margin-bottom: 0.2rem;">Mwikali Kioko</h2>
+          <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gold);">Chef Portal</span>
+        </div>
+
+        <ul class="admin-nav">
+          <li class="admin-nav-item active"><a href="/admin/dashboard.html">📊 Overview Dashboard</a></li>
+          <li class="admin-nav-item"><a href="/admin/orders.html">📦 Customer Orders</a></li>
+          <li class="admin-nav-item"><a href="/admin/bookings.html">📅 Catering Enquiries</a></li>
+          <li class="admin-nav-item"><a href="/admin/menu.html">🍲 Menu Management</a></li>
+          <li class="admin-nav-item"><a href="/admin/gallery.html">🖼️ Gallery Portfolio</a></li>
+        </ul>
+
+        <div class="admin-sidebar-footer">
+          <div id="admin-user-display" style="font-size: 0.82rem; color: rgba(255, 248, 238, 0.7); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Chef Mwikali Kioko</div>
+          <a href="/" target="_blank" style="font-size: 0.85rem; color: var(--color-gold);">View Live Website &rarr;</a>
+          <button onclick="Auth.logout()" class="btn btn-outline-gold btn-sm" style="width: 100%; margin-top: 0.5rem;">Sign Out</button>
+        </div>
+      </aside>
+
+      <!-- Main Admin Content Area -->
+      <main class="admin-main">
+        <div class="admin-header">
+          <div>
+            <h1 style="font-size: 1.85rem; color: var(--color-forest);">Overview Dashboard</h1>
+            <p style="font-size: 0.95rem; color: var(--color-muted);">Welcome back, Chef Mwikali. Here is today's culinary business activity.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="/admin/menu.html" class="btn btn-primary btn-sm">+ Add New Dish</a>
+            <a href="/api/download-zip" class="btn btn-gold btn-sm">Download Project ZIP &darr;</a>
+          </div>
+        </div>
+
+        <!-- 4 Key Metric Cards -->
+        <div class="admin-stats-grid">
+          <div class="stat-card">
+            <div class="stat-title">Confirmed Revenue</div>
+            <div id="stat-revenue" class="stat-value">KSh 0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">Pending Orders</div>
+            <div id="stat-orders-pending" class="stat-value">0 Pending</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">New Catering Enquiries</div>
+            <div id="stat-bookings-new" class="stat-value">0 Enquiries</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">Active Menu Dishes</div>
+            <div id="stat-menu-count" class="stat-value">0 Dishes</div>
+          </div>
+        </div>
+
+        <!-- Recent Customer Orders -->
+        <div class="admin-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: var(--color-forest);">Recent Customer Orders</h3>
+              <p style="font-size: 0.85rem; color: var(--color-muted);">Incoming delivery and collection orders submitted online.</p>
+            </div>
+            <a href="/admin/orders.html" class="btn btn-outline btn-sm">View All Orders &rarr;</a>
+          </div>
+
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order Ref</th>
+                  <th>Customer</th>
+                  <th>Total</th>
+                  <th>Fulfillment</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="recent-orders-table-body">
+                <tr><td colspan="6" style="text-align: center; padding: 2rem;">Loading orders...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Recent Catering Enquiries -->
+        <div class="admin-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: var(--color-forest);">Recent Catering Enquiries</h3>
+              <p style="font-size: 0.85rem; color: var(--color-muted);">Wedding receptions, corporate galas, and private dining requests.</p>
+            </div>
+            <a href="/admin/bookings.html" class="btn btn-outline btn-sm">View All Bookings &rarr;</a>
+          </div>
+
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Enquiry Ref</th>
+                  <th>Host Contact</th>
+                  <th>Event Type</th>
+                  <th>Date &amp; Guests</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="recent-bookings-table-body">
+                <tr><td colspan="6" style="text-align: center; padding: 2rem;">Loading enquiries...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/admin.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        Admin.initDashboard();
+      });
+    </script>
+  </body>
+</html>

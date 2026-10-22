@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Management | Chef Mwikali Kioko Portal</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <!-- Admin Sidebar -->
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <h2 style="font-size: 1.35rem; color: var(--color-cream); margin-bottom: 0.2rem;">Mwikali Kioko</h2>
+          <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gold);">Chef Portal</span>
+        </div>
+
+        <ul class="admin-nav">
+          <li class="admin-nav-item"><a href="/admin/dashboard.html">📊 Overview Dashboard</a></li>
+          <li class="admin-nav-item"><a href="/admin/orders.html">📦 Customer Orders</a></li>
+          <li class="admin-nav-item"><a href="/admin/bookings.html">📅 Catering Enquiries</a></li>
+          <li class="admin-nav-item active"><a href="/admin/menu.html">🍲 Menu Management</a></li>
+          <li class="admin-nav-item"><a href="/admin/gallery.html">🖼️ Gallery Portfolio</a></li>
+        </ul>
+
+        <div class="admin-sidebar-footer">
+          <div id="admin-user-display" style="font-size: 0.82rem; color: rgba(255, 248, 238, 0.7); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Chef Mwikali Kioko</div>
+          <a href="/" target="_blank" style="font-size: 0.85rem; color: var(--color-gold);">View Live Website &rarr;</a>
+          <button onclick="Auth.logout()" class="btn btn-outline-gold btn-sm" style="width: 100%; margin-top: 0.5rem;">Sign Out</button>
+        </div>
+      </aside>
+
+      <!-- Main Admin Content Area -->
+      <main class="admin-main">
+        <div class="admin-header">
+          <div>
+            <h1 style="font-size: 1.85rem; color: var(--color-forest);">Digital Menu Management</h1>
+            <p style="font-size: 0.95rem; color: var(--color-muted);">Add new culinary creations, update prices in KSh, and toggle stock availability.</p>
+          </div>
+        </div>
+
+        <!-- Add New Dish Form Card -->
+        <div class="admin-card">
+          <h3 style="font-size: 1.25rem; color: var(--color-forest); margin-bottom: 1.25rem;">+ Add New Menu Dish</h3>
+          
+          <form id="add-dish-form">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="dish_name">Dish Name <span class="required">*</span></label>
+                <input type="text" id="dish_name" name="dish_name" class="form-input" placeholder="e.g. Swahili Coconut Fish Curry" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="dish_category">Category <span class="required">*</span></label>
+                <select id="dish_category" name="dish_category" class="form-select" required>
+                  <option value="Breakfast">Breakfast</option>
+                  <option value="Breakfast Beverages">Breakfast Beverages</option>
+                  <option value="Snacks & Appetisers">Snacks &amp; Appetisers</option>
+                  <option value="Beef Main Course">Beef Main Course</option>
+                  <option value="Chicken Main Course">Chicken Main Course</option>
+                  <option value="Fish & Seafood">Fish &amp; Seafood</option>
+                  <option value="Kenyan & East African">Kenyan &amp; East African</option>
+                  <option value="Pasta & Italian">Pasta &amp; Italian</option>
+                  <option value="Pizza">Pizza</option>
+                  <option value="Burgers & Fast Food">Burgers &amp; Fast Food</option>
+                  <option value="Vegetarian & Vegan">Vegetarian &amp; Vegan</option>
+                  <option value="Rice & Side Dishes">Rice &amp; Side Dishes</option>
+                  <option value="Desserts">Desserts</option>
+                  <option value="Soft Drinks & Fresh Juices">Soft Drinks &amp; Fresh Juices</option>
+                  <option value="Coffee & Tea">Coffee &amp; Tea</option>
+                  <option value="Mocktails & Milkshakes">Mocktails &amp; Milkshakes</option>
+                  <option value="Bar Menu">Bar Menu</option>
+                  <option value="Room Service">Room Service</option>
+                  <option value="Banquet & Event Packages">Banquet &amp; Event Packages</option>
+                  <option value="Children's Menu">Children's Menu</option>
+                  <option value="Special Dietary Menu">Special Dietary Menu</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="dish_price">Price in KSh <span class="required">*</span></label>
+                <input type="number" id="dish_price" name="dish_price" class="form-input" placeholder="e.g. 1250" min="50" step="1" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="dish_dietary">Dietary Labels (Comma-separated)</label>
+                <input type="text" id="dish_dietary" name="dish_dietary" class="form-input" placeholder="e.g. Halal, Gluten-Free, Pescatarian" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="dish_file">Upload Dish Photograph (or select preset)</label>
+              <input type="file" id="dish_file" accept="image/png, image/jpeg, image/jpg, image/webp" class="form-input" style="padding: 0.4rem;" />
+              <span class="form-hint">Upload custom food photo from device, or choose from presets below</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="dish_image">Or Choose Preset Photo</label>
+              <select id="dish_image" name="dish_image" class="form-select">
+                <option value="/assets/images/kenyan_beef_pilau.jpg">Kenyan Beef Pilau Photo</option>
+                <option value="/assets/images/nyama_choma_platter.jpg">Nyama Choma Platter Photo</option>
+                <option value="/assets/images/hero_chef_plating.jpg">Chef Plating &amp; Gourmet Course</option>
+                <option value="/assets/images/luxury_catering_setup.jpg">Luxury Banquet Spread</option>
+                <option value="/assets/images/chef_mwikali_portrait.jpg">Chef Mwikali Portrait</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="dish_description">Culinary Description</label>
+              <textarea id="dish_description" name="dish_description" class="form-textarea" rows="2" placeholder="Describe the flavour profile, slow cooking technique, and accompanying garnishes..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Dish to Menu</button>
+          </form>
+        </div>
+
+        <!-- Menu Table -->
+        <div class="admin-card">
+          <h3 style="font-size: 1.25rem; color: var(--color-forest); margin-bottom: 1.25rem;">Active Dishes</h3>
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>Dish Name &amp; Description</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Availability</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-menu-table-body">
+                <tr><td colspan="6" style="text-align: center; padding: 2rem;">Loading dishes...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/admin.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        Admin.initMenuPage();
+      });
+    </script>
+  </body>
+</html>

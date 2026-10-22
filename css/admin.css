@@ -1,0 +1,293 @@
+/* ==========================================================================
+   MWIKALI KIOKO - CHEF & CATERING
+   Admin Dashboard Styles
+   ========================================================================== */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #F8F9FA;
+}
+
+.admin-sidebar {
+  width: 260px;
+  background-color: var(--color-forest-dark);
+  color: var(--color-cream);
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.admin-brand {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(201, 164, 92, 0.25);
+}
+
+.admin-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.admin-nav-item a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  color: rgba(255, 248, 238, 0.8);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.admin-nav-item a:hover,
+.admin-nav-item.active a {
+  background-color: var(--color-forest);
+  color: var(--color-gold);
+}
+
+.admin-sidebar-footer {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 248, 238, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.admin-main {
+  flex-grow: 1;
+  padding: 2.5rem;
+  overflow-y: auto;
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-title {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  font-variant-numeric: tabular-nums;
+}
+
+.admin-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.admin-table th {
+  background-color: var(--color-cream-subtle);
+  color: var(--color-forest);
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-charcoal);
+  vertical-align: middle;
+}
+
+.admin-table tr:hover td {
+  background-color: #FAFAFA;
+}
+
+/* Status Selectors */
+.status-select {
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.status-Pending { background-color: #FEF3C7; color: #92400E; }
+.status-Accepted { background-color: #DBEAFE; color: #1E40AF; }
+.status-Preparing { background-color: #E0E7FF; color: #3730A3; }
+.status-Ready { background-color: #D1FAE5; color: #065F46; }
+.status-Completed { background-color: #D1FAE5; color: #065F46; }
+.status-Cancelled { background-color: #FEE2E2; color: #991B1B; }
+
+.status-New { background-color: #FEF3C7; color: #92400E; }
+.status-QuoteSent { background-color: #DBEAFE; color: #1E40AF; }
+.status-Confirmed { background-color: #D1FAE5; color: #065F46; }
+
+/* Admin Login Container */
+.admin-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-forest-dark);
+  padding: 1.5rem;
+}
+
+.admin-login-card {
+  max-width: 440px;
+  width: 100%;
+  background-color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 900px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    padding: 1.25rem;
+  }
+
+  .admin-brand {
+    margin-bottom: 1rem;
+  }
+
+  .admin-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .admin-nav-item {
+    flex: 0 0 auto;
+  }
+
+  .admin-nav-item a {
+    white-space: nowrap;
+  }
+
+  .admin-sidebar-footer {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+
+  .admin-sidebar-footer > .btn {
+    width: auto !important;
+  }
+
+  .admin-main {
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
+    padding: 1.75rem;
+  }
+
+  .admin-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .admin-header > div {
+    min-width: 0;
+  }
+
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-card {
+    min-width: 0;
+  }
+
+  .stat-value {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-main {
+    padding: 1.25rem 1rem;
+  }
+
+  .admin-header {
+    flex-direction: column;
+  }
+
+  .admin-header > div {
+    width: 100%;
+  }
+
+  .admin-header > div[style*="display: flex"] {
+    flex-wrap: wrap;
+  }
+
+  .admin-card {
+    padding: 1rem;
+  }
+
+  .admin-stats-grid {
+    gap: 0.75rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-value {
+    font-size: clamp(1.2rem, 6vw, 1.6rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .admin-stats-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
