@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Catering &amp; Events | Chef Mwikali Kioko – Kenya</title>
+    <meta name="description" content="Reserve catering services for your wedding, corporate summit, private chef dinner, or family feast with Chef Mwikali Kioko in Nairobi, Kenya." />
+    <meta property="og:title" content="Book Catering &amp; Events | Chef Mwikali Kioko – Kenya" />
+    <meta property="og:description" content="Reserve catering services for your wedding, corporate summit, private chef dinner, or family feast with Chef Mwikali Kioko." />
+    <meta property="og:image" content="/assets/images/pitzaa.avif" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+  </head>
+  <body>
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <a href="/" class="brand-wordmark">
+          <span class="brand-name">Mwikali Kioko</span>
+          <span class="brand-sub">Chef & Catering</span>
+        </a>
+        <nav aria-label="Main Navigation">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/about.html" class="nav-link">About</a></li>
+            <li><a href="/menu.html" class="nav-link">Menu</a></li>
+            <li><a href="/gallery.html" class="nav-link">Gallery</a></li>
+            <li><a href="/services.html" class="nav-link">Services</a></li>
+            <li><a href="/bookings.html" class="nav-link active">Bookings</a></li>
+            <li><a href="/contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="cart-toggle-btn" onclick="Cart.openDrawer()">
+            <span>Order</span>
+            <span class="cart-badge" style="display:none;">0</span>
+          </button>
+          <a href="/bookings.html" class="btn btn-primary btn-sm">Book Catering</a>
+          <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav-overlay"></div>
+    <div class="mobile-nav-panel">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="brand-name" style="font-size:1.25rem;">Mwikali Kioko</span>
+        <button class="mobile-nav-close" style="background:transparent; border:none; font-size:1.5rem; cursor:pointer; color:var(--color-muted);">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="/" class="mobile-nav-link">Home</a></li>
+        <li><a href="/about.html" class="mobile-nav-link">About Mwikali</a></li>
+        <li><a href="/menu.html" class="mobile-nav-link">Digital Menu</a></li>
+        <li><a href="/gallery.html" class="mobile-nav-link">Culinary Gallery</a></li>
+        <li><a href="/services.html" class="mobile-nav-link">Catering Services</a></li>
+        <li><a href="/bookings.html" class="mobile-nav-link">Book Catering</a></li>
+        <li><a href="/contact.html" class="mobile-nav-link">Contact & Location</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Subpage Header -->
+      <section style="background-color: var(--color-forest); color: var(--color-cream); padding: 4.5rem 0 3.5rem;">
+        <div class="container text-center">
+          <span class="section-kicker" style="color: var(--color-gold);">Reserve Your Date</span>
+          <h1 style="color: var(--color-white); margin-bottom: 1rem;">Catering Booking Enquiry</h1>
+          <p style="color: rgba(255, 248, 238, 0.85); margin: 0 auto; max-width: 620px; font-size: 1.15rem;">
+            Tell us about your upcoming occasion. Chef Mwikali will review availability and prepare a customised proposal tailored to your vision.
+          </p>
+        </div>
+      </section>
+
+      <!-- Booking Form Section -->
+      <section class="section-padding bg-cream">
+        <div class="container-narrow">
+          <div style="background-color: var(--color-pink); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 3rem; box-shadow: var(--shadow-sm);">
+            
+            <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+              <h2 style="font-size: 1.6rem; color: var(--color-forest); margin-bottom: 0.5rem;">Event Specifications</h2>
+              <p style="font-size: 0.95rem; color: var(--color-muted);">
+                Kindly fill in the event parameters below. All enquiries receive a bespoke proposal within 24 business hours.
+              </p>
+            </div>
+
+            <form id="catering-booking-form">
+              <!-- Customer Details -->
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="customer_name">Host / Contact Name <span class="required">*</span></label>
+                  <input type="text" id="customer_name" name="customer_name" class="form-input" placeholder="e.g. Angela Muthoni" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="customer_phone">Phone / WhatsApp Number <span class="required">*</span></label>
+                  <input type="tel" id="customer_phone" name="customer_phone" class="form-input" placeholder="+254 7********/others"required />
+                  <span class="form-hint">Kenyan or international contact format</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="customer_email">Email Address (Optional)</label>
+                <input type="email" id="customer_email" name="customer_email" class="form-input" placeholder="host@gmail.com" />
+                <span class="form-hint">Used for sending itemised quotation PDF</span>
+              </div>
+
+              <!-- Event Details -->
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="event_type">Event Type <span class="required">*</span></label>
+                  <select id="event_type" name="event_type" class="form-select" required>
+                    <option value="">Select Event Type</option>
+                    <option value="Wedding Reception">Wedding Reception</option>
+                    <option value="Corporate Conference / Gala">Corporate Conference / Gala</option>
+                    <option value="Private In-Home Chef Dinner">Private In-Home Chef Dinner</option>
+                    <option value="Birthday Celebration">Birthday Celebration</option>
+                    <option value="Family Gathering / Reunion">Family Gathering / Reunion</option>
+                    <option value="Traditional Dowry / Ruracio">Traditional Dowry / Ruracio Ceremony</option>
+                    <option value="Cocktail Networking Party">Cocktail Networking Party</option>
+                    <option value="Other Custom Event">Other Custom Event</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="event_date">Event Date <span class="required">*</span></label>
+                  <input type="date" id="event_date" name="event_date" class="form-input" required />
+                  <span class="form-hint">Past dates are automatically disabled</span>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="location">Event Location / Venue <span class="required">*</span></label>
+                  <input type="text" id="location" name="location" class="form-input" placeholder="e.g. Karen, Nairobi or Private Residence" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="guest_count">Estimated Guests <span class="required">*</span></label>
+                  <input type="number" id="guest_count" name="guest_count" class="form-input" min="2" max="2000" placeholder="e.g. 150" required />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="preferred_service">Preferred Service Style</label>
+                  <select id="preferred_service" name="preferred_service" class="form-select">
+                    <option value="Full Banquet Buffet">Full Banquet Buffet</option>
+                    <option value="Live Charcoal Grilling Station">Live Charcoal Grilling Station (Nyama Choma)</option>
+                    <option value="Plated Multi-Course Dinner">Plated Multi-Course Dinner (2-5 Courses)</option>
+                    <option value="Finger-Food & Cocktail Canapés">Finger-Food &amp; Cocktail Canap&eacute;s</option>
+                    <option value="Pilau & Traditional Cuisine Feast">Pilau &amp; Traditional Cuisine Feast</option>
+                    <option value="Tailored Chef Consultation">Custom Chef Consultation</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="budget_range">Estimated Budget Range (Optional)</label>
+                  <select id="budget_range" name="budget_range" class="form-select">
+                    <option value="To be discussed">To be discussed with Chef</option>
+                    <option value="KSh 50,000 - 100,000">KSh 50,000 &ndash; 100,000</option>
+                    <option value="KSh 100,000 - 250,000">KSh 100,000 &ndash; 250,000</option>
+                    <option value="KSh 250,000 - 500,000">KSh 250,000 &ndash; 500,000</option>
+                    <option value="KSh 500,000+">KSh 500,000+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="additional_requirements">Additional Requirements or Dietary Preferences</label>
+                <textarea id="additional_requirements" name="additional_requirements" class="form-textarea" rows="4" placeholder="Mention special dietary requests (Halal, Vegetarian, Vegan, Allergies), venue facilities (water, electricity, kitchen tent), or specific dishes you would like included."></textarea>
+              </div>
+
+              <div style="background-color: var(--color-cream-subtle); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 2rem;">
+                <p style="font-size: 0.88rem; color: var(--color-muted);">
+                  <strong>Note:</strong> Submission does not guarantee date lock. Chef Mwikali will review calendar availability and contact you directly via phone or WhatsApp to finalise the menu tasting and booking contract.
+                </p>
+              </div>
+
+              <button type="submit" class="btn btn-gold btn-lg" style="width: 100%;">
+                Submit Catering Enquiry
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Booking Success Confirmation Modal -->
+    <div id="booking-success-modal" class="modal-overlay">
+      <div class="modal-card" style="text-align: center;">
+        <button class="modal-close" onclick="document.getElementById('booking-success-modal').classList.remove('open'); document.body.style.overflow='';" aria-label="Close">&times;</button>
+        <div style="width: 56px; height: 56px; border-radius: 50%; background-color: var(--color-forest); color: var(--color-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.8rem;">✓</div>
+        <h3 style="margin-bottom: 0.5rem; color: var(--color-forest);">Catering Enquiry Submitted!</h3>
+        <p style="font-size: 0.95rem; color: var(--color-muted); margin-bottom: 1.5rem;">
+          Your event booking reference is <span id="booking-ref-display" style="font-family: monospace; font-weight: 700; color: var(--color-forest);"></span>.
+        </p>
+
+        <div style="background-color: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem; text-align: left; font-size: 0.9rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+            <span style="color: var(--color-muted);">Target Date:</span>
+            <strong id="booking-date-display"></strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+            <span style="color: var(--color-muted);">Guest Capacity:</span>
+            <span id="booking-guests-display"></span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--color-muted);">Status:</span>
+            <span style="color: var(--color-gold); font-weight: 600;">Under Chef Review</span>
+          </div>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--color-muted); margin-bottom: 1.5rem;">
+          Want an immediate response? Connect with Chef Mwikali directly on WhatsApp with your booking details attached.
+        </p>
+
+        <a id="booking-whatsapp-link" href="#" target="_blank" class="btn btn-gold btn-lg" style="width: 100%; margin-bottom: 0.75rem;">
+          Follow Up on WhatsApp
+        </a>
+        <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="document.getElementById('booking-success-modal').classList.remove('open'); document.body.style.overflow='';">
+          Return to Website
+        </button>
+      </div>
+    </div>
+
+    <!-- Global Cart Drawer -->
+    <div id="cart-drawer-overlay" class="cart-drawer-overlay" onclick="Cart.closeDrawer()"></div>
+    <div id="cart-drawer" class="cart-drawer">
+      <div class="cart-drawer-header">
+        <h3 style="font-size: 1.35rem; color: var(--color-forest);">Your Order Cart</h3>
+        <button class="cart-close-btn" onclick="Cart.closeDrawer()">&times;</button>
+      </div>
+      <div id="cart-items-list" class="cart-drawer-content"></div>
+      <div id="cart-empty-state" style="display:none; text-align:center; padding: 3rem 1.5rem; color: var(--color-muted);">
+        <p style="margin-bottom: 1rem;">Your order bag is currently empty.</p>
+        <a href="/menu.html" class="btn btn-primary btn-sm">Explore Menu Dishes</a>
+      </div>
+      <div id="cart-drawer-footer" class="cart-drawer-footer" style="display:none;">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal-val" class="tabular-nums font-semibold">KSh 0</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Delivery (Nairobi)</span>
+          <span id="cart-fee-val" class="tabular-nums">KSh 300</span>
+        </div>
+        <div class="cart-summary-row cart-summary-total">
+          <span>Estimated Total</span>
+          <span id="cart-total-val" class="tabular-nums">KSh 0</span>
+        </div>
+        <button class="btn btn-gold btn-lg" style="width: 100%; margin-top: 1.25rem;" onclick="Cart.openCheckoutModal()">
+          Proceed to Order Enquiry &rarr;
+        </button>
+      </div>
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a id="floating-whatsapp-btn" href="https://wa.me/254757246896" target="_blank" class="floating-whatsapp">
+      <svg class="whatsapp-icon" viewBox="0 0 24 24"><path d="M12.031 2C6.496 2 2 6.496 2 12.031c0 1.767.458 3.488 1.328 5.006L2 22l5.12-1.312a9.98 9.98 0 0 0 4.911 1.282h.004c5.535 0 10.031-4.496 10.031-10.031 0-2.68-1.043-5.199-2.937-7.094A9.97 9.97 0 0 0 12.031 2zm0 18.358h-.003a8.318 8.318 0 0 1-4.24-1.162l-.304-.18-3.04.779.811-2.963-.197-.314a8.314 8.314 0 0 1-1.275-4.487c0-4.595 3.738-8.333 8.333-8.333 2.227 0 4.32.867 5.894 2.441a8.278 8.278 0 0 1 2.438 5.895c0 4.596-3.738 8.334-8.333 8.334zm4.566-6.234c-.25-.125-1.48-.73-1.71-.813-.23-.083-.396-.125-.562.125-.167.25-.646.813-.792.98-.146.166-.292.187-.542.062-.25-.125-1.054-.388-2.008-1.238-.742-.662-1.242-1.48-1.388-1.73-.146-.25-.016-.385.109-.51.112-.112.25-.292.375-.438.125-.146.167-.25.25-.417.083-.167.042-.313-.021-.438-.063-.125-.562-1.354-.77-1.854-.203-.487-.41-.421-.563-.429l-.479-.008c-.167 0-.438.063-.667.313-.23.25-.875.854-.875 2.083 0 1.23.896 2.417 1.021 2.583.125.167 1.763 2.692 4.271 3.775.597.258 1.063.412 1.427.528.6.19 1.146.163 1.577.099.48-.072 1.48-.604 1.688-1.188.208-.583.208-1.083.146-1.188-.063-.104-.23-.167-.48-.292z"/></svg>
+      <span>WhatsApp Us</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3>Mwikali Kioko</h3>
+            <p>Every Dish Tells a Story. Gourmet Kenyan catering, Afro-fusion digital menu, and private chef services across Nairobi.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul class="footer-links">
+              <li><a href="/" class="footer-link">Home</a></li>
+              <li><a href="/about.html" class="footer-link">About Mwikali</a></li>
+              <li><a href="/menu.html" class="footer-link">Digital Menu</a></li>
+              <li><a href="/gallery.html" class="footer-link">Culinary Gallery</a></li>
+              <li><a href="/services.html" class="footer-link">Catering Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Reservations</h4>
+            <ul class="footer-links">
+              <li><a href="/bookings.html" class="footer-link">Book Catering</a></li>
+              <li><a href="/contact.html" class="footer-link">Contact &amp; Location</a></li>
+              <li><a href="/admin/index.html" class="footer-link">Chef Admin Portal</a></li>
+              <li><a href="/api/download-zip" class="footer-link" style="color:var(--color-gold);">Download Project ZIP &darr;</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Kitchen &amp; Orders</h4>
+            <p style="color: rgba(255, 248, 238, 0.8); font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Location:</strong> Nairobi, Kenya</p>
+            <p style="color: rgba(255, 248, 238, 0.8); font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Phone:</strong> +254 757 246 896</p>
+            <p style="color: rgba(255, 248, 238, 0.8); font-size: 0.9rem;"><strong>Email:</strong> mwikalik210@gmail.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 Mwikali Kioko. All rights reserved.</span>
+          <span>Crafted for Culinary Excellence in Kenya</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/validation.js"></script>
+    <script src="/js/supabase-client.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/bookings.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+      // Automatically preselect service if URL query param exists (e.g. ?service=...)
+      document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const srv = urlParams.get('service');
+        if (srv) {
+          const select = document.getElementById('preferred_service');
+          if (select) {
+            for (let i = 0; i < select.options.length; i++) {
+              if (select.options[i].value.toLowerCase().includes(srv.toLowerCase())) {
+                select.selectedIndex = i;
+                break;
+              }
+            }
+          }
+        }
+      });
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  createChat({
+    webhookUrl: 'https://robinsonryath24.app.n8n.cloud/webhook/dcdf95b0-3f86-491f-8114-e924a0e6689e/chat',
+    mode: 'window',
+    showWelcomeScreen: false,
+    initialMessages: [
+      'Karibu! I am the virtual assistant for Chef Mwikali Kioko.',
+      'Ask me about our menu, prices, events and catering.'
+    ],
+    i18n: {
+      en: {
+        title: 'Chef Mwikali Kioko',
+        subtitle: 'Ask about our menu, events and bookings',
+        footer: '',
+        getStarted: 'New Conversation',
+        inputPlaceholder: 'Type your question...',
+      },
+    },
+  });
+</script>
+  </body>
+</html>
